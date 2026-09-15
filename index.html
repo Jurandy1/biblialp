@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #ededed; }
+  * { box-sizing: border-box; }
+  body { font-family: "Open Sans", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #1a6bb5; text-decoration: none; }
+  a:hover { color: #0f4e86; text-decoration: underline; }
+  input, select { font-family: inherit; }
+  input::placeholder { color: #b6b6b6; }
+  input:focus, select:focus { outline: none; border-color: #8a8a8a; }
+</style>
+</helmet>
+
+<div style="background:#ededed; min-height:100vh; padding-bottom:0;">
+  <div style="max-width:1180px; margin:0 auto; background:#ededed;">
+
+    <img src="assets/banner-top.png" alt="Descubra o Método Simples para estudar a Bíblia em apenas 15 minutos por dia" style="display:block; width:100%; height:auto;" />
+
+    <sc-if value="{{ caktoEmbed }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:18px 0;">
+        <iframe src="{{ caktoUrl }}" title="Checkout Cakto" style="width:100%; min-height:1200px; border:0; background:#fff; border-radius:4px; display:block;"></iframe>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showReplica }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:18px; padding:18px 0;">
+
+      <div style="flex:1 1 560px; min-width:0; background:#fff; border:1px solid #e2e2e2; border-radius:4px;">
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #ececec;">
+          <div style="font-family:'Poppins',sans-serif; font-size:12px; letter-spacing:.06em; color:#555; font-weight:600;">DADOS DE PAGAMENTO</div>
+          <div style="display:flex; align-items:center; gap:7px; font-size:13px; color:#333;">
+            <span style="display:inline-block; width:19px; height:13px; border-radius:2px; background:linear-gradient(#1c9e4b 45%, #f7d117 45%, #f7d117 55%, #1c9e4b 55%);"></span>
+            <span>Alterar país</span>
+            <span style="font-size:9px; color:#777;">▼</span>
+          </div>
+        </div>
+
+        <div style="padding:18px 18px 8px;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:0 18px;">
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Seu nome completo</div>
+              <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; background:#fff;">
+                <span style="color:#bdbdbd; font-size:13px;">&#9787;</span>
+                <input type="text" placeholder="Ex: Jhon Doe" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Seu CPF/CNPJ</div>
+              <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <span style="color:#bdbdbd; font-size:12px;">&#9638;</span>
+                <input type="text" placeholder="Ex: 123.456.789-00" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Seu e-mail</div>
+              <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <span style="color:#bdbdbd; font-size:12px;">&#9993;</span>
+                <input type="email" placeholder="Ex: jhondoe@email.com" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Confirme seu e-mail</div>
+              <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <span style="color:#bdbdbd; font-size:12px;">&#9993;</span>
+                <input type="email" placeholder="Ex: jhondoe@email.com" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0 18px; margin-bottom:14px;">
+            <div style="width:110px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">DDD</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: 11" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="flex:1 1 200px; min-width:0;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Número de telefone</div>
+              <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; max-width:300px;">
+                <span style="color:#bdbdbd; font-size:12px;">&#9742;</span>
+                <input type="text" placeholder="Ex: 9 9999 9999" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:0 18px;">
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">CEP</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: 12345-678" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Endereço</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: Rua A" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Número</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: 2212" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Complemento (opcional)</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: 30 andar, sala 30024" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0 18px;">
+            <div style="flex:1 1 230px; min-width:0; margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Bairro</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: Jardins" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="width:90px; margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Estado</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: SP" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+            <div style="flex:1 1 160px; min-width:0; margin-bottom:14px;">
+              <div style="font-size:12px; color:#666; margin-bottom:6px;">Cidade</div>
+              <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px;">
+                <input type="text" placeholder="Ex: São Paulo" style="border:0; padding:11px 0; font-size:14px; width:100%; color:#333;" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:4px 18px 18px; display:flex; flex-direction:column; gap:10px;">
+
+          <div style="border:1px solid #cfcfcf; border-radius:5px; overflow:hidden;">
+            <div onClick="{{ pickCard }}" style="display:flex; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; background:#fff;">
+              <span style="width:16px; height:16px; border-radius:50%; border:1px solid #9b9b9b; display:flex; align-items:center; justify-content:center; flex:none;">
+                <sc-if value="{{ isCard }}" hint-placeholder-val="{{ true }}"><span style="width:8px; height:8px; border-radius:50%; background:#3b3b3b; display:block;"></span></sc-if>
+              </span>
+              <span style="color:#7a7a7a; font-size:13px;">&#9635;</span>
+              <span style="font-size:14px; font-weight:600; color:#333;">Cartão de crédito</span>
+            </div>
+            <sc-if value="{{ isCard }}" hint-placeholder-val="{{ true }}">
+            <div style="border-top:1px solid #e6e6e6; background:#f7f7f7; padding:16px; display:flex; flex-wrap:wrap; gap:18px;">
+              <div style="flex:1 1 280px; min-width:0; display:flex; flex-direction:column; gap:12px;">
+                <div>
+                  <div style="font-size:12px; color:#666; margin-bottom:6px;">Número do cartão</div>
+                  <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; background:#fff;">
+                    <span style="color:#bdbdbd; font-size:12px;">&#9635;</span>
+                    <input type="text" placeholder="Ex: 1234 5678 1234 5678" style="border:0; padding:11px 0; font-size:14px; width:100%; background:transparent; color:#333;" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:12px; color:#666; margin-bottom:6px;">Titular do cartão</div>
+                  <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; background:#fff;">
+                    <span style="color:#bdbdbd; font-size:13px;">&#9787;</span>
+                    <input type="text" placeholder="Ex: Jhon Doe" style="border:0; padding:11px 0; font-size:14px; width:100%; background:transparent; color:#333;" />
+                  </div>
+                </div>
+                <div style="display:flex; gap:12px; align-items:flex-end;">
+                  <div>
+                    <div style="font-size:12px; color:#666; margin-bottom:6px;">Data de validade</div>
+                    <div style="display:flex; gap:8px;">
+                      <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; background:#fff; width:62px;">
+                        <input type="text" placeholder="MM" style="border:0; padding:11px 0; font-size:14px; width:100%; background:transparent; color:#333;" />
+                      </div>
+                      <div style="border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; background:#fff; width:62px;">
+                        <input type="text" placeholder="AA" style="border:0; padding:11px 0; font-size:14px; width:100%; background:transparent; color:#333;" />
+                      </div>
+                    </div>
+                  </div>
+                  <div style="flex:1 1 auto; min-width:0;">
+                    <div style="font-size:12px; color:#666; margin-bottom:6px; display:flex; align-items:center; gap:5px;">
+                      <span>Código de segurança</span>
+                      <span style="width:13px; height:13px; border-radius:50%; border:1px solid #aaa; color:#888; font-size:9px; display:inline-flex; align-items:center; justify-content:center;">?</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px; border:1px solid #d9d9d9; border-radius:4px; padding:0 10px; background:#fff; max-width:120px;">
+                      <span style="color:#bdbdbd; font-size:12px;">&#128274;</span>
+                      <input type="text" placeholder="CVV" style="border:0; padding:11px 0; font-size:14px; width:100%; background:transparent; color:#333;" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:12px; color:#666; margin-bottom:6px;">Opções de parcelamento</div>
+                  <select style="width:100%; max-width:260px; border:1px solid #d9d9d9; border-radius:4px; padding:10px; font-size:14px; background:#fff; color:#333;">
+                    <option>12 x R$ 2,71*</option>
+                    <option>6 x R$ 5,04*</option>
+                    <option>3 x R$ 9,60*</option>
+                    <option>1 x R$ 27,00</option>
+                  </select>
+                </div>
+              </div>
+              <div style="flex:0 1 240px; min-width:200px;">
+                <div style="background:#dcdcdc; border-radius:8px; padding:16px; height:170px; display:flex; flex-direction:column; justify-content:space-between;">
+                  <div style="display:flex; align-items:flex-start; justify-content:space-between;">
+                    <span style="width:34px; height:24px; border-radius:4px; background:#cfcfcf; border:1px solid #c2c2c2; display:block;"></span>
+                    <span style="color:#a9a9a9; letter-spacing:.15em; font-size:16px;">•••</span>
+                  </div>
+                  <div style="color:#b3b3b3; letter-spacing:.18em; font-size:15px;">**** **** **** ****</div>
+                  <div style="display:flex; justify-content:space-between; color:#b3b3b3; letter-spacing:.12em; font-size:12px;">
+                    <span>***** * *****</span>
+                    <span>**/**</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </sc-if>
+          </div>
+
+          <div onClick="{{ pickPix }}" style="display:flex; align-items:center; gap:10px; padding:14px 16px; border:1px solid #d9d9d9; border-radius:5px; cursor:pointer; background:#fff;">
+            <span style="width:16px; height:16px; border-radius:50%; border:1px solid #9b9b9b; display:flex; align-items:center; justify-content:center; flex:none;">
+              <sc-if value="{{ isPix }}" hint-placeholder-val="{{ false }}"><span style="width:8px; height:8px; border-radius:50%; background:#3b3b3b; display:block;"></span></sc-if>
+            </span>
+            <span style="color:#32bcad; font-size:13px;">&#10022;</span>
+            <span style="font-size:14px; font-weight:600; color:#333;">Pix</span>
+          </div>
+
+          <div onClick="{{ pickCardPix }}" style="display:flex; align-items:center; gap:10px; padding:14px 16px; border:1px solid #d9d9d9; border-radius:5px; cursor:pointer; background:#fff;">
+            <span style="width:16px; height:16px; border-radius:50%; border:1px solid #9b9b9b; display:flex; align-items:center; justify-content:center; flex:none;">
+              <sc-if value="{{ isCardPix }}" hint-placeholder-val="{{ false }}"><span style="width:8px; height:8px; border-radius:50%; background:#3b3b3b; display:block;"></span></sc-if>
+            </span>
+            <span style="color:#7a7a7a; font-size:13px;">&#9635;</span>
+            <span style="color:#32bcad; font-size:13px;">&#10022;</span>
+            <span style="font-size:14px; font-weight:600; color:#333;">Cartão + Pix</span>
+          </div>
+
+          <div onClick="{{ pickTwoCards }}" style="display:flex; align-items:center; gap:10px; padding:14px 16px; border:1px solid #d9d9d9; border-radius:5px; cursor:pointer; background:#fff;">
+            <span style="width:16px; height:16px; border-radius:50%; border:1px solid #9b9b9b; display:flex; align-items:center; justify-content:center; flex:none;">
+              <sc-if value="{{ isTwoCards }}" hint-placeholder-val="{{ false }}"><span style="width:8px; height:8px; border-radius:50%; background:#3b3b3b; display:block;"></span></sc-if>
+            </span>
+            <span style="color:#7a7a7a; font-size:13px;">&#9636;</span>
+            <span style="font-size:14px; font-weight:600; color:#333;">Dois cartões</span>
+          </div>
+
+          <div onClick="{{ pickBoleto }}" style="display:flex; align-items:center; gap:10px; padding:14px 16px; border:1px solid #d9d9d9; border-radius:5px; cursor:pointer; background:#fff;">
+            <span style="width:16px; height:16px; border-radius:50%; border:1px solid #9b9b9b; display:flex; align-items:center; justify-content:center; flex:none;">
+              <sc-if value="{{ isBoleto }}" hint-placeholder-val="{{ false }}"><span style="width:8px; height:8px; border-radius:50%; background:#3b3b3b; display:block;"></span></sc-if>
+            </span>
+            <span style="color:#555; font-size:13px; letter-spacing:-1px;">|||</span>
+            <span style="font-size:14px; font-weight:600; color:#333;">Boleto</span>
+          </div>
+
+          <sc-if value="{{ showUpsell }}" hint-placeholder-val="{{ true }}">
+          <div style="border:1px dashed #e0b83a; border-radius:5px; margin-top:8px;">
+            <div style="background:#fbecc0; text-align:center; padding:9px; font-size:13px; font-weight:700; color:#8a6a10;">Aproveite também para comprar</div>
+            <div style="padding:14px;">
+              <div style="border:1px solid #e6e6e6; border-radius:5px; padding:14px; background:#fff;">
+                <div style="display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;">
+                  <div style="width:56px; height:74px; border-radius:3px; overflow:hidden; flex:none; background:#3d2208;">
+                    <img src="assets/planner-cover.png" alt="Planner Devocional MD15" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                  </div>
+                  <div style="flex:1 1 260px; min-width:0;">
+                    <a href="{{ caktoUpsellUrl }}" target="_blank" style="font-size:14px; font-weight:700; color:#222; margin-bottom:6px; display:block; text-decoration:none;" style-hover="color:#8a6a10; text-decoration:underline;">Planner Devocional MD15-Guia Prático para sua Rotina Espiritual</a>
+                    <div style="font-size:12px; color:#777; line-height:1.55;">Coloque o método em prática todos os dias, acompanhe sua constância e tenha um plano simples para seus momentos com a Bíblia.</div>
+                  </div>
+                  <div style="font-size:15px; font-weight:700; color:#222; white-space:nowrap;">R$ 19,90</div>
+                </div>
+                <div style="margin-top:16px;">
+                  <div style="font-size:12px; color:#666; margin-bottom:6px;">Parcelamento</div>
+                  <select style="width:100%; max-width:260px; border:1px solid #d9d9d9; border-radius:4px; padding:9px 10px; font-size:13px; background:#fff; color:#333;">
+                    <option>12 x R$ 2,00*</option>
+                    <option>6 x R$ 3,71*</option>
+                    <option>1 x R$ 19,90</option>
+                  </select>
+                </div>
+                <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+                  <div style="font-size:11px; color:#999;">O valor será cobrado separadamente</div>
+                  <label style="display:flex; align-items:center; gap:7px; font-size:12px; color:#444; cursor:pointer;">
+                    <input type="checkbox" checked="{{ addon }}" onChange="{{ toggleAddon }}" style="width:15px; height:15px; accent-color:#d8a41f; cursor:pointer;" />
+                    <span>Adicionar produto</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          </sc-if>
+
+          <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-top:10px;">
+            <div style="font-size:11px; color:#8a8a8a; line-height:1.6; max-width:420px;">
+              Ao continuar, você concorda com os <a href="#termos">termos de uso</a> e <a href="#privacidade">políticas de privacidade</a><br />
+              * parcelamento com acréscimo
+            </div>
+            <a href="{{ caktoUrl }}" style="border:0; background:#8cc06a; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:14px; letter-spacing:.04em; padding:14px 30px; border-radius:4px; cursor:pointer; text-decoration:none; display:inline-block;" style-hover="background:#7ab257; color:#fff; text-decoration:none;">PAGAR AGORA</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:0 1 300px; min-width:270px; background:#fff; border:1px solid #e2e2e2; border-radius:4px; overflow:hidden;">
+        <div style="display:flex; align-items:center; justify-content:flex-end; gap:7px; padding:8px 14px; background:#fafafa; border-bottom:1px solid #f0f0f0;">
+          <span style="font-size:9px; color:#9a9a9a; letter-spacing:.08em;">POWERED BY</span>
+          <span style="font-family:'Poppins',sans-serif; font-size:13px; font-weight:700; color:#2b2b2b;">s<span style="color:#4c8ef7;">◆</span>eep</span>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="display:inline-flex; align-items:center; gap:7px; background:#e8f6ec; color:#2f7d45; border-radius:3px; padding:7px 11px; font-size:11px; font-weight:700; letter-spacing:.03em;">
+            <span>&#128737;</span><span>COMPRA 100% SEGURA</span>
+          </div>
+        </div>
+        <div style="padding:0 14px 6px; font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; letter-spacing:.06em; color:#666; border-bottom:1px solid #f0f0f0; padding-bottom:10px;">RESUMO DA COMPRA</div>
+        <div style="padding:14px; display:flex; gap:12px; align-items:flex-start; border-bottom:1px solid #f0f0f0;">
+          <div style="width:44px; height:58px; flex:none; border-radius:3px; overflow:hidden; background:#111;">
+            <img src="assets/ebook-cover.png" alt="E-book 15 Minutos por dia com sua Bíblia" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          </div>
+          <div style="min-width:0;">
+            <div style="font-size:12.5px; font-weight:700; color:#333; line-height:1.4;">E-book: 15 Minutos por dia com sua Bíblia</div>
+            <div style="font-size:11px; color:#999; margin-top:3px;">Curso online</div>
+          </div>
+        </div>
+        <div style="padding:12px 14px; font-size:12px; color:#444; display:flex; flex-direction:column; gap:7px; border-bottom:1px solid #f0f0f0;">
+          <div style="display:flex; justify-content:space-between;">
+            <span>Preço</span>
+            <span style="color:#999; text-decoration:line-through;">R$ 47,00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#1a6bb5;">Desconto</span>
+            <span style="color:#1a6bb5;">- R$ 20,00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+            <span>Total a pagar</span>
+            <span style="font-family:'Poppins',sans-serif; font-size:17px; font-weight:700; color:#1c1c1c;">12x R$ 2,71 *</span>
+          </div>
+          <div style="text-align:right; font-size:11px; color:#888;">ou R$ 27,00 à vista</div>
+          <sc-if value="{{ addon }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; justify-content:space-between; border-top:1px dashed #e6e6e6; padding-top:8px; font-size:11.5px; color:#666;">
+              <span>+ Planner Devocional MD15</span>
+              <span>R$ 19,90</span>
+            </div>
+          </sc-if>
+        </div>
+        <div style="padding:12px 14px 18px;">
+          <div style="text-align:center; font-size:12px; color:#555; margin-bottom:10px;">Formas de pagamento</div>
+          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#777; letter-spacing:.02em;">MASTER</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#777;">VISA</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:7px; font-weight:700; color:#777; text-align:center;">AMERICAN<br />EXPRESS</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#777;">ELO</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#777;">HIPER</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#777;">HIPERCARD</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:7px; font-weight:700; color:#777; text-align:center;">DINERS<br />CLUB</span>
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#777;">BOLETO</span>
+          </div>
+          <div style="display:flex; justify-content:center; margin-top:10px;">
+            <span style="border:1px solid #ececec; border-radius:3px; height:30px; width:64px; display:flex; align-items:center; justify-content:center; gap:4px; font-size:11px; font-weight:700; color:#32bcad;"><span>&#10022;</span>pix</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <img src="assets/banner-bottom.png" alt="Benefícios do método e Planner Devocional" style="display:block; width:100%; height:auto;" />
+
+    <div style="text-align:center; padding:26px 16px 34px; font-size:10.5px; color:#8f8f8f; line-height:1.8;">
+      Este site é protegido por reCAPTCHA e a <a href="#privacidade">Política de Privacidade</a> e os <a href="#termos">Termos de Serviço</a> do Google se aplicam.<br />
+      ©2026 - Seep | Todos os Direitos Reservados<br />
+      Desenvolvido por Diego
+    </div>
+  </div>
+
+  <sc-if value="{{ showWhatsapp }}" hint-placeholder-val="{{ true }}">
+  <a href="https://wa.me/5551997193035" target="_blank" style="position:fixed; left:18px; bottom:18px; width:52px; height:52px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,.25); z-index:50; color:#fff; font-size:26px; text-decoration:none;" style-hover="background:#1eb855;">&#9742;</a>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;caktoEmbed&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Cakto&quot;},&quot;caktoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://pay.cakto.com.br/52if2mp_1112368&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cakto&quot;},&quot;caktoUpsellUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://pay.cakto.com.br/9av9q4e_1112379&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cakto&quot;},&quot;showUpsell&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Checkout&quot;},&quot;showWhatsapp&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Checkout&quot;},&quot;defaultMethod&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;card&quot;,&quot;options&quot;:[&quot;card&quot;,&quot;pix&quot;,&quot;cardpix&quot;,&quot;twocards&quot;,&quot;boleto&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Checkout&quot;}}">
+class Component extends DCLogic {
+  state = { method: null, addon: false };
+  get method() { return this.state.method ?? (this.props.defaultMethod || "card"); }
+  pick(m) { this.setState({ method: m }); }
+  renderVals() {
+    const m = this.method;
+    return {
+      isCard: m === "card",
+      isPix: m === "pix",
+      isCardPix: m === "cardpix",
+      isTwoCards: m === "twocards",
+      isBoleto: m === "boleto",
+      pickCard: () => this.pick("card"),
+      pickPix: () => this.pick("pix"),
+      pickCardPix: () => this.pick("cardpix"),
+      pickTwoCards: () => this.pick("twocards"),
+      pickBoleto: () => this.pick("boleto"),
+      addon: this.state.addon,
+      toggleAddon: () => this.setState(s => ({ addon: !s.addon })),
+      showUpsell: this.props.showUpsell ?? false,
+      showWhatsapp: this.props.showWhatsapp ?? true,
+      caktoUpsellUrl: this.props.caktoUpsellUrl || "https://pay.cakto.com.br/9av9q4e_1112379",
+      caktoEmbed: this.props.caktoEmbed ?? true,
+      showReplica: !(this.props.caktoEmbed ?? true),
+      caktoUrl: this.props.caktoUrl || "https://pay.cakto.com.br/52if2mp_1112368"
+    };
+  }
+}
+</script>
+</body>
+</html>
