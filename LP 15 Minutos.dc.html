@@ -30,7 +30,15 @@
 
     <sc-if value="{{ caktoEmbed }}" hint-placeholder-val="{{ false }}">
       <div style="padding:18px 0;">
-        <iframe src="{{ caktoUrl }}" title="Checkout Cakto" style="width:100%; min-height:1200px; border:0; background:#fff; border-radius:4px; display:block;"></iframe>
+        <iframe src="{{ caktoUrl }}" title="Checkout Cakto" allow="payment *; publickey-credentials-get *; clipboard-write" referrerpolicy="no-referrer-when-downgrade" style="width:100%; min-height:1200px; border:0; background:#fff; border-radius:4px; display:block;"></iframe>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showIosCta }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:28px 18px; margin:18px 0; text-align:center; background:#fff; border:1px solid #e2e2e2; border-radius:4px;">
+        <div style="font-family:'Poppins',sans-serif; font-size:18px; font-weight:600; color:#1c1c1c; margin-bottom:8px;">Finalize seu pedido</div>
+        <div style="font-size:14px; color:#555; margin-bottom:20px;">No iPhone o pagamento abre na página segura da Cakto.</div>
+        <a href="{{ caktoUrl }}" style="border:0; background:#8cc06a; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; letter-spacing:.04em; padding:14px 34px; border-radius:4px; cursor:pointer; text-decoration:none; display:inline-block;">PAGAR AGORA</a>
       </div>
     </sc-if>
 
@@ -381,6 +389,10 @@ class Component extends DCLogic {
   pick(m) { this.setState({ method: m }); }
   renderVals() {
     const m = this.method;
+    const caktoUrl = this.props.caktoUrl || "https://pay.cakto.com.br/52if2mp_1112368";
+    const preferEmbed = this.props.caktoEmbed ?? true;
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const caktoEmbed = preferEmbed && !isIOS;
     return {
       isCard: m === "card",
       isPix: m === "pix",
@@ -397,9 +409,10 @@ class Component extends DCLogic {
       showUpsell: this.props.showUpsell ?? false,
       showWhatsapp: this.props.showWhatsapp ?? true,
       caktoUpsellUrl: this.props.caktoUpsellUrl || "https://pay.cakto.com.br/9av9q4e_1112379",
-      caktoEmbed: this.props.caktoEmbed ?? true,
-      showReplica: !(this.props.caktoEmbed ?? true),
-      caktoUrl: this.props.caktoUrl || "https://pay.cakto.com.br/52if2mp_1112368"
+      caktoEmbed,
+      showIosCta: preferEmbed && isIOS,
+      showReplica: !preferEmbed,
+      caktoUrl
     };
   }
 }
