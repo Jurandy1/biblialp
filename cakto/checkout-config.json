@@ -1,0 +1,261 @@
+{
+  "name": "MD15 - Checkout Principal",
+  "default": true,
+  "offers": ["52if2mp_1112368"],
+  "desktop": {
+    "rows": [
+      {
+        "id": "a1000000-0000-4000-8000-000000000001",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "a1000000-0000-4000-8000-000000000002",
+            "type": "column",
+            "components": [
+              {
+                "id": "a1000000-0000-4000-8000-000000000003",
+                "type": "image",
+                "attributes": {
+                  "src": "https://SEU-DOMINIO/assets/banner-top.png",
+                  "alt": "Descubra o Método Simples para estudar a Bíblia em apenas 15 minutos por dia",
+                  "width": "100%",
+                  "link": ""
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "a1000000-0000-4000-8000-000000000004",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "a1000000-0000-4000-8000-000000000005",
+            "type": "column",
+            "components": [
+              {
+                "id": "a1000000-0000-4000-8000-000000000006",
+                "type": "checkout",
+                "attributes": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "a1000000-0000-4000-8000-000000000007",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "a1000000-0000-4000-8000-000000000008",
+            "type": "column",
+            "components": [
+              {
+                "id": "a1000000-0000-4000-8000-000000000009",
+                "type": "image",
+                "attributes": {
+                  "src": "https://SEU-DOMINIO/assets/banner-bottom.png",
+                  "alt": "Benefícios do método MD15 e Planner Devocional",
+                  "width": "100%",
+                  "link": ""
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "extra": {
+      "chat": {
+        "id": "a1000000-0000-4000-8000-00000000000a",
+        "type": "chat",
+        "attributes": {
+          "enabled": true,
+          "provider": "whatsapp",
+          "accountId": "5551997193035"
+        }
+      },
+      "exitPopup": {
+        "id": "a1000000-0000-4000-8000-00000000000b",
+        "type": "exitPopup",
+        "attributes": {
+          "enabled": true,
+          "title": "Espere! Leve também o Planner Devocional MD15",
+          "description": "Marque o Planner no checkout e aplique o método todos os dias com um plano pronto.",
+          "actionLabel": "Sim, eu quero!",
+          "actionOnClick": "offer",
+          "textButtonColor": "#1c1c1c",
+          "backgroundButtonColor": "#E3A81E"
+        }
+      },
+      "notification": {
+        "id": "a1000000-0000-4000-8000-00000000000c",
+        "type": "notification",
+        "attributes": { "enabled": false }
+      }
+    },
+    "settings": {
+      "font": { "family": "Poppins" },
+      "background": { "color": "#EDEDED", "cover": false, "fixed": false, "image": null, "repeat": false },
+      "form": { "background": { "color": "#ffffff" } },
+      "icon": { "color": "#1c1c1c" },
+      "text": { "color": { "active": "#B57F0B", "primary": "#1c1c1c", "secondary": "#4B5563" } },
+      "payButton": { "text": { "text": "PAGAR AGORA", "color": "#1c1c1c" }, "color": "#E3A81E" },
+      "box": {
+        "default": {
+          "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } },
+          "header": { "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } }, "background": { "color": "#F1E3BD" } },
+          "background": { "color": "#FFFFFF" }
+        },
+        "selected": {
+          "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } },
+          "header": { "text": { "color": { "primary": "#1c1c1c", "secondary": "#1c1c1c" } }, "background": { "color": "#E3A81E" } },
+          "background": { "color": "#FFFFFF" }
+        },
+        "unselected": {
+          "text": { "color": { "primary": "#4B5563", "secondary": "#6B7280" } },
+          "header": { "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } }, "background": { "color": "#E5E5E5" } },
+          "background": { "color": "#F7F7F7" }
+        }
+      },
+      "paymentOptions": {
+        "button": {
+          "selected": { "icon": { "color": "#1c1c1c" }, "text": { "color": "#1c1c1c" }, "background": { "color": "#E3A81E" } },
+          "unselected": { "icon": { "color": "#1c1c1c" }, "text": { "color": "#4B5563" }, "background": { "color": "#ffffff" } }
+        }
+      }
+    }
+  },
+  "mobile": {
+    "rows": [
+      {
+        "id": "b2000000-0000-4000-8000-000000000001",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "b2000000-0000-4000-8000-000000000002",
+            "type": "column",
+            "components": [
+              {
+                "id": "b2000000-0000-4000-8000-000000000003",
+                "type": "image",
+                "attributes": {
+                  "src": "https://SEU-DOMINIO/assets/banner-top.png",
+                  "alt": "Descubra o Método Simples para estudar a Bíblia em apenas 15 minutos por dia",
+                  "width": "100%",
+                  "link": ""
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000004",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "b2000000-0000-4000-8000-000000000005",
+            "type": "column",
+            "components": [
+              {
+                "id": "b2000000-0000-4000-8000-000000000006",
+                "type": "checkout",
+                "attributes": {}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b2000000-0000-4000-8000-000000000007",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "b2000000-0000-4000-8000-000000000008",
+            "type": "column",
+            "components": [
+              {
+                "id": "b2000000-0000-4000-8000-000000000009",
+                "type": "image",
+                "attributes": {
+                  "src": "https://SEU-DOMINIO/assets/banner-bottom.png",
+                  "alt": "Benefícios do método MD15 e Planner Devocional",
+                  "width": "100%",
+                  "link": ""
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "extra": {
+      "chat": {
+        "id": "b2000000-0000-4000-8000-00000000000a",
+        "type": "chat",
+        "attributes": {
+          "enabled": true,
+          "provider": "whatsapp",
+          "accountId": "5551997193035"
+        }
+      },
+      "exitPopup": {
+        "id": "b2000000-0000-4000-8000-00000000000b",
+        "type": "exitPopup",
+        "attributes": {
+          "enabled": true,
+          "title": "Espere! Leve também o Planner Devocional MD15",
+          "description": "Marque o Planner no checkout e aplique o método todos os dias com um plano pronto.",
+          "actionLabel": "Sim, eu quero!",
+          "actionOnClick": "offer",
+          "textButtonColor": "#1c1c1c",
+          "backgroundButtonColor": "#E3A81E"
+        }
+      },
+      "notification": {
+        "id": "b2000000-0000-4000-8000-00000000000c",
+        "type": "notification",
+        "attributes": { "enabled": false }
+      }
+    },
+    "settings": {
+      "font": { "family": "Poppins" },
+      "background": { "color": "#EDEDED", "cover": false, "fixed": false, "image": null, "repeat": false },
+      "form": { "background": { "color": "#ffffff" } },
+      "icon": { "color": "#1c1c1c" },
+      "text": { "color": { "active": "#B57F0B", "primary": "#1c1c1c", "secondary": "#4B5563" } },
+      "payButton": { "text": { "text": "PAGAR AGORA", "color": "#1c1c1c" }, "color": "#E3A81E" },
+      "box": {
+        "default": {
+          "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } },
+          "header": { "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } }, "background": { "color": "#F1E3BD" } },
+          "background": { "color": "#FFFFFF" }
+        },
+        "selected": {
+          "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } },
+          "header": { "text": { "color": { "primary": "#1c1c1c", "secondary": "#1c1c1c" } }, "background": { "color": "#E3A81E" } },
+          "background": { "color": "#FFFFFF" }
+        },
+        "unselected": {
+          "text": { "color": { "primary": "#4B5563", "secondary": "#6B7280" } },
+          "header": { "text": { "color": { "primary": "#1c1c1c", "secondary": "#4B5563" } }, "background": { "color": "#E5E5E5" } },
+          "background": { "color": "#F7F7F7" }
+        }
+      },
+      "paymentOptions": {
+        "button": {
+          "selected": { "icon": { "color": "#1c1c1c" }, "text": { "color": "#1c1c1c" }, "background": { "color": "#E3A81E" } },
+          "unselected": { "icon": { "color": "#1c1c1c" }, "text": { "color": "#4B5563" }, "background": { "color": "#ffffff" } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,519 @@
+CAKTO CHECHOUTS:
+Checkouts
+Listar Checkouts
+
+Lista todos os checkouts de um produto
+GET
+/
+public_api
+/
+products
+/
+{product_pk}
+/
+checkouts
+/
+Try it
+​
+Escopo
+
+    read products
+
+O campo config não é retornado neste endpoint para evitar respostas muito grandes. Para obter o config completo, utilize o endpoint de obter checkout.
+Authorizations
+​
+Authorization
+string
+header
+required
+
+Token de autenticação do tipo Bearer {access_token}, onde {access_token} é o token obtido no fluxo de autenticação.
+Path Parameters
+​
+product_pk
+string
+required
+Query Parameters
+​
+limit
+integer
+
+Número de resultados a serem retornados por página.
+​
+ordering
+string
+
+Which field to use when ordering the results.
+​
+page
+integer
+
+Número da página a ser retornada.
+​
+search
+string
+
+A search term.
+Response
+200
+application/json
+
+Corpo da resposta status 200
+​
+count
+integer
+Example:
+
+123
+​
+next
+string<uri> | null
+Example:
+
+"http://api.example.org/accounts/?page=4"
+​
+previous
+string<uri> | null
+Example:
+
+"http://api.example.org/accounts/?page=2"
+​
+results
+object[]
+
+Hide child attributes
+​
+results.id
+integer
+required
+read-only
+​
+results.name
+string
+required
+
+Nome do checkout
+Maximum string length: 255
+​
+results.updatedAt
+string<date-time>
+required
+read-only
+
+Data e hora da última atualização
+​
+results.createdAt
+string<date-time>
+required
+read-only
+
+Data e hora de criação
+​
+results.default
+boolean
+
+Define se este é o checkout padrão do produto
+​
+results.visits
+integer
+
+Quantidade de visitas ao checkout
+Required range: -2147483648 <= x <= 2147483647
+
+curl --request GET \
+  --url https://api.cakto.com.br/public_api/products/{product_pk}/checkouts/ \
+  --header 'Authorization: Bearer <token>'
+
+{
+  "count": 123,
+  "next": "http://api.example.org/accounts/?page=4",
+  "previous": "http://api.example.org/accounts/?page=2",
+  "results": [
+    {
+      "id": 1,
+      "name": "Checkout Principal",
+      "default": true,
+      "updatedAt": "2026-01-01T00:00:00.000000-03:00",
+      "createdAt": "2026-01-01T00:00:00.000000-03:00",
+      "visits": 0
+    }
+  ]
+}
+
+
+Obter Checkout
+
+Retorna informações detalhadas de um checkout específico
+GET
+/
+public_api
+/
+products
+/
+{product_pk}
+/
+checkouts
+/
+{id}
+/
+Try it
+​
+Escopo
+
+    read products
+
+Authorizations
+​
+Authorization
+string
+header
+required
+
+Token de autenticação do tipo Bearer {access_token}, onde {access_token} é o token obtido no fluxo de autenticação.
+Path Parameters
+​
+id
+string
+required
+​
+product_pk
+string
+required
+Response
+200
+application/json
+​
+id
+integer
+required
+read-only
+​
+name
+string
+required
+
+Nome do checkout
+Maximum string length: 255
+​
+offers
+string
+required
+read-only
+​
+updatedAt
+string<date-time>
+required
+read-only
+
+Data e hora da última atualização
+​
+createdAt
+string<date-time>
+required
+read-only
+
+Data e hora de criação
+​
+config
+any | null
+
+Configuração personalizada do checkout em formato JSON
+​
+default
+boolean
+
+Define se este é o checkout padrão do produto
+​
+visits
+integer
+
+Quantidade de visitas ao checkout
+Required range: -2147483648 <= x <= 2147483647
+
+curl --request GET \
+  --url https://api.cakto.com.br/public_api/products/{product_pk}/checkouts/{id}/ \
+  --header 'Authorization: Bearer <token>'
+
+{
+  "id": 123,
+  "name": "<string>",
+  "offers": "<string>",
+  "updatedAt": "2023-11-07T05:31:56Z",
+  "createdAt": "2023-11-07T05:31:56Z",
+  "config": "<unknown>",
+  "default": true,
+  "visits": -1
+}
+
+{
+  "detail": "As credenciais de autenticação não foram fornecidas."
+}
+
+
+Checkouts
+Personalizar Checkout
+
+Personalize a aparência e comportamento da página de checkout. Atualize a experiência de compra do cliente com configurações visuais e componentes customizados.
+PUT
+/
+public_api
+/
+products
+/
+{product_pk}
+/
+checkouts
+/
+{id}
+/
+Try it
+​
+Escopo
+
+    write products
+
+O checkout é construído a partir de uma estrutura declarativa compatível com o Checkout Builder, permitindo experiências diferentes para desktop e mobile. Para o formato completo — tipos de bloco, atributos válidos e como imagens funcionam — veja Estrutura do Checkout.
+Sempre deve existir um checkout padrão ativo para o produto. Para alterar o checkout principal, defina outro checkout com "default": true.
+​
+Casos de uso
+
+    Criar checkouts com branding personalizado — adapte cores, logo e identidade visual da página de compra.
+    Exibir layouts diferentes por dispositivo — ofereça experiências otimizadas para desktop e mobile.
+    Destacar ofertas específicas — construa páginas focadas em upsells, downsells ou ofertas principais.
+    Construir experiências otimizadas para conversão — teste elementos, copy e estrutura que convertem mais.
+    Testar variações de checkout — crie e compare diferentes versões da página de compra.
+
+​
+Exemplo de configuração
+
+Expandir exemplo completo de config
+
+{
+  "mobile": {
+    "rows": [
+      {
+        "id": "369db380-d652-4b4f-bf0e-31710f1cfc03",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "e0253c14-37ea-47f7-b77a-e260cb814a6f",
+            "type": "column",
+            "components": []
+          }
+        ]
+      },
+      {
+        "id": "7e8b3918-b6a8-4d10-b66a-024f5812d7e1",
+        "type": "row",
+        "layout": [12],
+        "columns": [
+          {
+            "id": "fb131cd7-57e8-4981-931a-9d71a3fe6ca9",
+            "type": "column",
+            "components": [
+              {
+                "id": "cff7c565-5957-4330-be70-b804878827dd",
+                "type": "checkout",
+                "attributes": {}
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "extra": {
+      "chat": {
+        "id": "8f5c57d5-1548-4474-a5fd-fa91d408cdd1",
+        "type": "chat",
+        "attributes": {
+          "enabled": false,
+          "provider": "whatsapp",
+          "accountId": ""
+        }
+      },
+      "exitPopup": {
+        "id": "9f8d9444-d0f5-429d-9c06-fd2fa22d8adc",
+        "type": "exitPopup",
+        "attributes": {
+          "enabled": false,
+          "title": "Temos uma oferta especial para você!",
+          "actionLabel": "Sim, eu quero!",
+          "description": "Escreva algo aqui para convencer o cliente a não sair da página",
+          "actionOnClick": "offer",
+          "textButtonColor": "#ffffff",
+          "backgroundButtonColor": "#0f7865"
+        }
+      },
+      "notification": {
+        "id": "26c584c9-6006-4d46-b7a6-e69197f1db8f",
+        "type": "notification",
+        "attributes": {
+          "enabled": false
+        }
+      }
+    },
+    "settings": {
+      "box": {
+        "default": {
+          "text": { "color": { "primary": "#000000", "secondary": "#000000" } },
+          "header": { "text": { "color": { "primary": "#000000", "secondary": "#000000" } }, "background": { "color": "#D1D1D1" } },
+          "background": { "color": "#EDEDED" }
+        },
+        "selected": {
+          "text": { "color": { "primary": "#4B5563", "secondary": "#4B5563" } },
+          "header": { "text": { "color": { "primary": "#ffffff", "secondary": "#ffffff" } }, "background": { "color": "#0B6856" } },
+          "background": { "color": "#ffffff" }
+        },
+        "unselected": {
+          "text": { "color": { "primary": "#4B5563", "secondary": "#4B5563" } },
+          "header": { "text": { "color": { "primary": "#000000", "secondary": "#000000" } }, "background": { "color": "#D1D1D1" } },
+          "background": { "color": "#EDEDED" }
+        }
+      },
+      "font": { "family": "Roboto" },
+      "form": { "background": { "color": "#ffffff" } },
+      "icon": { "color": "#000000" },
+      "text": { "color": { "active": "#0B6856", "primary": "#000000", "secondary": "#4B5563" } },
+      "payButton": {
+        "text": { "text": "PAGAR AGORA", "color": "#ffffff" },
+        "color": "#0B6856"
+      },
+      "background": { "color": "#f1f1f1", "cover": false, "fixed": false, "image": null, "repeat": false },
+      "paymentOptions": {
+        "button": {
+          "selected": { "icon": { "color": "#ffffff" }, "text": { "color": "#ffffff" }, "background": { "color": "#0B6856" } },
+          "unselected": { "icon": { "color": "#000000" }, "text": { "color": "#4B5563" }, "background": { "color": "#ffffff" } }
+        }
+      }
+    }
+  },
+  "offers": ["zyb57dg"],
+  "default": true
+}
+
+Authorizations
+​
+Authorization
+string
+header
+required
+
+Token de autenticação do tipo Bearer {access_token}, onde {access_token} é o token obtido no fluxo de autenticação.
+Path Parameters
+​
+id
+string
+required
+​
+product_pk
+string
+required
+Body
+application/json
+​
+name
+string
+required
+
+Nome do checkout
+Maximum string length: 255
+​
+config
+any | null
+
+Configuração personalizada do checkout em formato JSON
+​
+default
+boolean
+
+Define se este é o checkout padrão do produto
+​
+visits
+integer
+
+Quantidade de visitas ao checkout
+Required range: -2147483648 <= x <= 2147483647
+Response
+200
+application/json
+​
+id
+integer
+required
+read-only
+​
+name
+string
+required
+
+Nome do checkout
+Maximum string length: 255
+​
+offers
+string
+required
+read-only
+​
+updatedAt
+string<date-time>
+required
+read-only
+
+Data e hora da última atualização
+​
+createdAt
+string<date-time>
+required
+read-only
+
+Data e hora de criação
+​
+config
+any | null
+
+Configuração personalizada do checkout em formato JSON
+​
+default
+boolean
+
+Define se este é o checkout padrão do produto
+​
+visits
+integer
+
+Quantidade de visitas ao checkout
+Required range: -2147483648 <= x <= 2147483647
+
+
+curl --request PUT \
+  --url https://api.cakto.com.br/public_api/products/{product_pk}/checkouts/{id}/ \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '
+{
+  "name": "<string>",
+  "config": "<unknown>",
+  "default": true,
+  "visits": -1
+}
+'
+
+{
+  "id": 123,
+  "name": "<string>",
+  "offers": "<string>",
+  "updatedAt": "2023-11-07T05:31:56Z",
+  "createdAt": "2023-11-07T05:31:56Z",
+  "config": "<unknown>",
+  "default": true,
+  "visits": -1
+}
+
+API:
+[21:26, 11/09/2026] Diego Feltes: k7OMZzN0FZdDTKsFeGNx1Lw3ugX50zj2fCizAYfU
+
+CLIENTE ID
+[21:26, 11/09/2026] Diego Feltes: 8x4IayAIw6wCjitWzEo2nQVo7xolTFPcud753yslX1UjEAIC0Z84wxqE2wnowVpP1M5Y2JLhdaOkC5hRjfsvhj56XjqFE1sStNQVZiMNkQmisCrs9IGMBiau2GsmCbbY
+
+CLIENTE SECRED
